@@ -35,6 +35,10 @@ def welcome():
         return redirect(url_for("login"))
     return render_template("welcome.html", user=session["user"])
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 @app.route("/logout")
 def logout():
     session.pop("user", None)
