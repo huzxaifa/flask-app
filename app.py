@@ -1,4 +1,4 @@
-from flaskx import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"  # Required for sessions & flash messages
@@ -13,7 +13,7 @@ def home():
         return redirect(url_for("welcome"))
     return redirect(url_for("login"))
 
-#@app.route("/login", methods=["GET", "POST"])
+@app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         username = request.form["username"]
